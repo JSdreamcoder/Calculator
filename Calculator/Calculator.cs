@@ -304,7 +304,8 @@ namespace Calculator
             }
             else if(OperationBox.Text.Split(' ').Count() == 2)
             {
-                
+                if (input == "0")
+                    return;
                 var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
@@ -331,7 +332,7 @@ namespace Calculator
                 {
                     if (num == 0)
                     {
-                        NumberBox.Text = "Can't devide by 0";
+                        NumberBox.Text = "Can't divide by 0";
                         return;
                     }
                     OperationBox.Text = $"{storedOperand / num } +";
@@ -369,7 +370,8 @@ namespace Calculator
             }
             else if (OperationBox.Text.Split(' ').Count() == 2)
             {
-                
+                if (input == "0")
+                    return;
                 var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
@@ -396,7 +398,7 @@ namespace Calculator
                 {
                     if (num == 0)
                     {
-                        NumberBox.Text = "Can't devide by 0";
+                        NumberBox.Text = "Can't divide by 0";
                         return;
                     }
                     OperationBox.Text = $"{storedOperand / num } -";
@@ -435,7 +437,8 @@ namespace Calculator
             }
             else if (OperationBox.Text.Split(' ').Count() == 2)
             {
-                
+                if (input == "0")
+                    return;
                 var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
@@ -462,7 +465,7 @@ namespace Calculator
                 {
                     if (num == 0)
                     {
-                        NumberBox.Text = "Can't devide by 0";
+                        NumberBox.Text = "Can't divide by 0";
                         return;
                     }
                     OperationBox.Text = $"{storedOperand / num } x";
@@ -502,7 +505,8 @@ namespace Calculator
             }
             else if (OperationBox.Text.Split(' ').Count() == 2)
             {
-               
+                if (input == "0")
+                    return;
                 var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
@@ -529,7 +533,7 @@ namespace Calculator
                 {
                     if (num == 0)
                     {
-                        NumberBox.Text = "Can't devide by 0";
+                        NumberBox.Text = "Can't divide by 0";
                         return;
                     }
                     OperationBox.Text = $"{storedOperand / num } /";
@@ -592,7 +596,7 @@ namespace Calculator
                 {
                     if (num == 0)
                     {
-                        NumberBox.Text = "Can't devide by 0";
+                        NumberBox.Text = "Can't divide by 0";
                         return;
                     }
                     OperationBox.Text = $"{storedOperand} / {num} =";
@@ -625,7 +629,7 @@ namespace Calculator
                 {
                     if (num == 0)
                     {
-                        NumberBox.Text = "Can't devide by 0";
+                        NumberBox.Text = "Can't divide by 0";
                         return;
                     }
                     OperationBox.Text = $"{num} / {storedOperand2} =";
@@ -661,7 +665,7 @@ namespace Calculator
 
         private void Bin_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text == "Error" || NumberBox.Text== "Can't devide by 0")
+            if (NumberBox.Text == "Error" || NumberBox.Text== "Can't divide by 0")
             {
                 NumberBox.Text = "0";
                 return;
@@ -699,7 +703,7 @@ namespace Calculator
 
         private void Dec_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text == "Error" || NumberBox.Text == "Can't devide by 0")
+            if (NumberBox.Text == "Error" || NumberBox.Text == "Can't divide by 0")
             {
                 NumberBox.Text = "0";
                 return;
@@ -806,7 +810,37 @@ namespace Calculator
             return result;
         }
 
-       
+        private void square_Click(object sender, EventArgs e)
+        {
+            var x = decimal.Parse(NumberBox.Text);
+            OperationBox.Text = $"{x} x {x} =";
+            NumberBox.Text = $"{x * x}";
+        }
+
+        private void reciprocal_Click(object sender, EventArgs e)
+        {
+            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            {
+                NumberBox.Text = "0";
+                return;
+            }
+            if (NumberBox.Text == "0")
+            {
+                NumberBox.Text = "Can't divide by 0";
+                return;
+            }
+            var x = decimal.Parse(NumberBox.Text);
+            
+            OperationBox.Text = $"1 / {x} =";
+            NumberBox.Text = $"{1 / x}";
+        }
+
+
+
+        //private decimal Normalize(this decimal value)
+        //{
+        //    return value / 1.000000000000000000000000000000000m;
+        //}
 
         //private void Calculator_KeyUp(object sender, KeyEventArgs e)
         //{
@@ -816,6 +850,6 @@ namespace Calculator
         //    }
         //}
 
-       
+
     }
 }
