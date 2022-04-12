@@ -18,9 +18,10 @@ namespace Calculator
 
         private void Num0_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
                 
@@ -44,9 +45,10 @@ namespace Calculator
 
         private void Num1_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -68,9 +70,10 @@ namespace Calculator
 
         private void Num2_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -92,9 +95,10 @@ namespace Calculator
 
         private void Num3_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -116,9 +120,10 @@ namespace Calculator
 
         private void Num4_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -140,9 +145,10 @@ namespace Calculator
 
         private void Num5_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -164,9 +170,10 @@ namespace Calculator
 
         private void Num6_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -188,9 +195,10 @@ namespace Calculator
 
         private void Num7_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -212,9 +220,10 @@ namespace Calculator
 
         private void Num8_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -236,9 +245,10 @@ namespace Calculator
 
         private void Num9_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -260,9 +270,10 @@ namespace Calculator
 
         private void Point_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -288,9 +299,10 @@ namespace Calculator
 
         private void Plus_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -310,23 +322,23 @@ namespace Calculator
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
                 {
-                    OperationBox.Text = $"{storedOperand + num } +";
+                    OperationBox.Text = $"{normalize(storedOperand + num) } +";
                     return;
                 }
                 if (storedOperation == "+")
                 {
-                   OperationBox.Text = $"{storedOperand + num } +";
-                   NumberBox.Text = $"{storedOperand + num}";
+                   OperationBox.Text = $"{normalize(storedOperand + num) } +";
+                   NumberBox.Text = $"{normalize(storedOperand + num)}";
                 } 
                 else if(storedOperation == "-")
                 {
-                    OperationBox.Text = $"{storedOperand - num } +";
-                    NumberBox.Text = $"{storedOperand - num}";
+                    OperationBox.Text = $"{normalize(storedOperand - num) } +";
+                    NumberBox.Text = $"{normalize(storedOperand - num)}";
                 }
                 else if (storedOperation == "x")
                 {
-                    OperationBox.Text = $"{storedOperand * num } +";
-                    NumberBox.Text = $"{storedOperand * num}";
+                    OperationBox.Text = $"{normalize(storedOperand * num) } +";
+                    NumberBox.Text = $"{normalize(storedOperand * num)}";
                 }
                 else if (storedOperation == "/")
                 {
@@ -335,28 +347,29 @@ namespace Calculator
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{storedOperand / num } +";
-                    NumberBox.Text = $"{storedOperand / num}";
+                    OperationBox.Text = $"{normalize(storedOperand / num) } +";
+                    NumberBox.Text = $"{normalize(storedOperand / num)}";
                 }else if (storedOperation == "=")
                 {
-                    OperationBox.Text = $"{storedOperand} +";
-                    NumberBox.Text = $"{storedOperand}";
+                    OperationBox.Text = $"{normalize(storedOperand)} +";
+                    NumberBox.Text = $"{normalize(storedOperand)}";
                 }
                 
             }else if (OperationBox.Text.Split(' ').Count() ==4)
             {
                 var previousNum = decimal.Parse(NumberBox.Text);
-                OperationBox.Text = $"{previousNum} +";
-                NumberBox.Text = $"{previousNum}";
+                OperationBox.Text = $"{normalize(previousNum)} +";
+                NumberBox.Text = $"{normalize(previousNum)}";
             }
             input = "0";
         }
 
         private void Minus_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -376,23 +389,23 @@ namespace Calculator
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
                 {
-                    OperationBox.Text = $"{storedOperand + num } -";
+                    OperationBox.Text = $"{normalize(storedOperand + num) } -";
                     return;
                 }
                 if (storedOperation == "+")
                 {
-                    OperationBox.Text = $"{storedOperand + num } -";
-                    NumberBox.Text = $"{storedOperand + num}";
+                    OperationBox.Text = $"{normalize(storedOperand + num) } -";
+                    NumberBox.Text = $"{normalize(storedOperand + num)}";
                 }
                 else if (storedOperation == "-")
                 {
-                    OperationBox.Text = $"{storedOperand - num } -";
-                    NumberBox.Text = $"{storedOperand - num}";
+                    OperationBox.Text = $"{normalize(storedOperand - num) } -";
+                    NumberBox.Text = $"{normalize(storedOperand - num)}";
                 }
                 else if (storedOperation == "x")
                 {
-                    OperationBox.Text = $"{storedOperand * num } -";
-                    NumberBox.Text = $"{storedOperand * num}";
+                    OperationBox.Text = $"{normalize(storedOperand * num) } -";
+                    NumberBox.Text = $"{normalize(storedOperand * num)}";
                 }
                 else if (storedOperation == "/")
                 {
@@ -401,13 +414,13 @@ namespace Calculator
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{storedOperand / num } -";
-                    NumberBox.Text = $"{storedOperand / num}";
+                    OperationBox.Text = $"{normalize(storedOperand / num) } -";
+                    NumberBox.Text = $"{normalize(storedOperand / num)}";
                 }
                 else if (storedOperation == "=")
                 {
-                    OperationBox.Text = $"{storedOperand} -";
-                    NumberBox.Text = $"{storedOperand}";
+                    OperationBox.Text = $"{normalize(storedOperand)} -";
+                    NumberBox.Text = $"{normalize(storedOperand)}";
                 }
 
             }
@@ -422,9 +435,10 @@ namespace Calculator
 
         private void Multiply_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -443,23 +457,23 @@ namespace Calculator
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
                 {
-                    OperationBox.Text = $"{storedOperand + num } x";
+                    OperationBox.Text = $"{normalize(storedOperand + num) } x";
                     return;
                 }
                 if (storedOperation == "+")
                 {
-                    OperationBox.Text = $"{storedOperand + num } x";
-                    NumberBox.Text = $"{storedOperand + num}";
+                    OperationBox.Text = $"{normalize(storedOperand + num) } x";
+                    NumberBox.Text = $"{normalize(storedOperand + num)}";
                 }
                 else if (storedOperation == "-")
                 {
-                    OperationBox.Text = $"{storedOperand - num } x";
-                    NumberBox.Text = $"{storedOperand - num}";
+                    OperationBox.Text = $"{normalize(storedOperand - num) } x";
+                    NumberBox.Text = $"{normalize(storedOperand - num)}";
                 }
                 else if (storedOperation == "x")
                 {
-                    OperationBox.Text = $"{storedOperand * num } x";
-                    NumberBox.Text = $"{storedOperand * num}";
+                    OperationBox.Text = $"{normalize(storedOperand * num) } x";
+                    NumberBox.Text = $"{normalize(storedOperand * num)}";
                 }
                 else if (storedOperation == "/")
                 {
@@ -468,30 +482,31 @@ namespace Calculator
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{storedOperand / num } x";
-                    NumberBox.Text = $"{storedOperand / num}";
+                    OperationBox.Text = $"{normalize(storedOperand / num) } x";
+                    NumberBox.Text = $"{normalize(storedOperand / num)}";
                 }
                 else if (storedOperation == "=")
                 {
-                    OperationBox.Text = $"{storedOperand} x";
-                    NumberBox.Text = $"{storedOperand}";
+                    OperationBox.Text = $"{normalize(storedOperand)} x";
+                    NumberBox.Text = $"{normalize(storedOperand)}";
                 }
 
             }
             else if (OperationBox.Text.Split(' ').Count() == 4)
             {
                 var previousNum = decimal.Parse(NumberBox.Text);
-                OperationBox.Text = $"{previousNum} x";
-                NumberBox.Text = $"{previousNum}";
+                OperationBox.Text = $"{normalize(previousNum)} x";
+                NumberBox.Text = $"{normalize(previousNum)}";
             }
             input = "0";
         }
 
         private void Divide_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -511,23 +526,23 @@ namespace Calculator
                 var storedOperation = OperationBox.Text.Split(' ')[1];
                 if (num == 0)
                 {
-                    OperationBox.Text = $"{storedOperand + num } /";
+                    OperationBox.Text = $"{normalize(storedOperand) } /";
                     return;
                 }
                 if (storedOperation == "+")
                 {
-                    OperationBox.Text = $"{storedOperand + num } /";
-                    NumberBox.Text = $"{storedOperand + num}";
+                    OperationBox.Text = $"{normalize(storedOperand + num )} /";
+                    NumberBox.Text = $"{normalize(storedOperand + num)}";
                 }
                 else if (storedOperation == "-")
                 {
-                    OperationBox.Text = $"{storedOperand - num } /";
-                    NumberBox.Text = $"{storedOperand - num}";
+                    OperationBox.Text = $"{normalize(storedOperand - num) } /";
+                    NumberBox.Text = $"{normalize(storedOperand - num)}";
                 }
                 else if (storedOperation == "x")
                 {
-                    OperationBox.Text = $"{storedOperand * num } /";
-                    NumberBox.Text = $"{storedOperand * num}";
+                    OperationBox.Text = $"{normalize(storedOperand * num) } /";
+                    NumberBox.Text = $"{normalize(storedOperand * num)}";
                 }
                 else if (storedOperation == "/")
                 {
@@ -536,13 +551,13 @@ namespace Calculator
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{storedOperand / num } /";
-                    NumberBox.Text = $"{storedOperand / num}";
+                    OperationBox.Text = $"{normalize(storedOperand / num) } /";
+                    NumberBox.Text = $"{normalize(storedOperand / num)}";
                 }
                 else if (storedOperation == "=")
                 {
-                    OperationBox.Text = $"{storedOperand} /";
-                    NumberBox.Text = $"{storedOperand}";
+                    OperationBox.Text = $"{normalize(storedOperand)} /";
+                    NumberBox.Text = $"{normalize(storedOperand)}";
                 }
 
             }
@@ -558,9 +573,10 @@ namespace Calculator
 
         private void Equal_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -580,17 +596,17 @@ namespace Calculator
                 if (storedOperation == "+")
                 {
                     OperationBox.Text = $"{storedOperand} + {num} =";
-                    NumberBox.Text = $"{storedOperand + num}";
+                    NumberBox.Text = $"{normalize(storedOperand + num)}";
                 }
                 else if (storedOperation == "-")
                 {
                     OperationBox.Text = $"{storedOperand} - {num} =";
-                    NumberBox.Text = $"{storedOperand - num}";
+                    NumberBox.Text = $"{normalize(storedOperand - num)}";
                 }
                 else if (storedOperation == "x")
                 {
                     OperationBox.Text = $"{storedOperand} x {num} =";
-                    NumberBox.Text = $"{storedOperand * num}";
+                    NumberBox.Text = $"{normalize(storedOperand * num)}";
                 }
                 else if (storedOperation == "/")
                 {
@@ -600,7 +616,7 @@ namespace Calculator
                         return;
                     }
                     OperationBox.Text = $"{storedOperand} / {num} =";
-                    NumberBox.Text = $"{storedOperand / num}";
+                    NumberBox.Text = $"{normalize(storedOperand / num)}";
                 }
                 
             }
@@ -613,17 +629,17 @@ namespace Calculator
                 if (storedOperation == "+")
                 {
                     OperationBox.Text = $"{num} + {storedOperand2} =";
-                    NumberBox.Text = $"{num + storedOperand2}";
+                    NumberBox.Text = $"{normalize(num + storedOperand2)}";
                 }
                 else if (storedOperation == "-")
                 {
                     OperationBox.Text = $"{num} - {storedOperand2} =";
-                    NumberBox.Text = $"{num - storedOperand2}";
+                    NumberBox.Text = $"{normalize(num - storedOperand2)}";
                 }
                 else if (storedOperation == "x")
                 {
                     OperationBox.Text = $"{num} x {storedOperand2} =";
-                    NumberBox.Text = $"{num*storedOperand}";
+                    NumberBox.Text = $"{normalize(num *storedOperand)}";
                 }
                 else if (storedOperation == "/")
                 {
@@ -633,7 +649,7 @@ namespace Calculator
                         return;
                     }
                     OperationBox.Text = $"{num} / {storedOperand2} =";
-                    NumberBox.Text = $"{num / storedOperand2 }";
+                    NumberBox.Text = $"{normalize(num / storedOperand2) }";
                 }
             }
             input = "0";
@@ -650,9 +666,10 @@ namespace Calculator
 
         private void Opposite_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
+                OperationBox.Text = "";
                 return;
             }
 
@@ -663,15 +680,54 @@ namespace Calculator
             NumberBox.Text = $"{-temp}";
         }
 
+        private void square_Click(object sender, EventArgs e)
+        {
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
+            {
+                NumberBox.Text = "0";
+                OperationBox.Text = "";
+                return;
+            }
+            var x = decimal.Parse(NumberBox.Text);
+            OperationBox.Text = $"{x} x {x} =";
+            NumberBox.Text = $"{x * x}";
+        }
+
+        private void reciprocal_Click(object sender, EventArgs e)
+        {
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
+            {
+                NumberBox.Text = "0";
+                OperationBox.Text = "";
+                return;
+            }
+
+            if (NumberBox.Text == "0")
+            {
+                NumberBox.Text = "Can't divide by 0";
+                return;
+            }
+            var x = decimal.Parse(NumberBox.Text);
+
+            OperationBox.Text = $"1 / {x} =";
+            NumberBox.Text = $"{1 / x}";
+        }
         private void Bin_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text == "Error" || NumberBox.Text== "Can't divide by 0")
+            if (NumberBox.Text == "Error" || NumberBox.Text== "Can't divide by 0" || NumberBox.Text == "0")
             {
                 NumberBox.Text = "0";
                 return;
             }
 
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (OperationBox.Text == "BIN")
+            {
+                return;
+            }
+
+           
+
+            if (OperationBox.Text == "LOC")
             {
                 // using ASCII code 
                 int lengh = NumberBox.Text.Length;
@@ -687,23 +743,26 @@ namespace Calculator
                 }
 
                 NumberBox.Text = ConvertDecToBin(result).ToString();
+                OperationBox.Text = "BIN";
             }
-            else if (NumberBox.Text.Contains('.') || decimal.Parse(NumberBox.Text) < 0)
+            else
             {
-                NumberBox.Text = "Error";
-                
-            }else if(NumberBox.Text.All(i=>!char.IsLetter(i)))
-            {
+                if (NumberBox.Text.Contains('.') || decimal.Parse(NumberBox.Text) < 0)
+                {
+                    NumberBox.Text = "Error";
+                    return;
+                }
                 double num = double.Parse(NumberBox.Text);
                 NumberBox.Text = ConvertDecToBin(num).ToString();
-
+                OperationBox.Text = "BIN";
             }
+            
           
         }
 
         private void Dec_Click(object sender, EventArgs e)
         {
-            if (NumberBox.Text == "Error" || NumberBox.Text == "Can't divide by 0")
+            if (NumberBox.Text == "Error" || NumberBox.Text == "Can't divide by 0" || NumberBox.Text == "0")
             {
                 NumberBox.Text = "0";
                 return;
@@ -713,7 +772,6 @@ namespace Calculator
             {
                 int lengh = NumberBox.Text.Length;
                 string temp = NumberBox.Text.ToString();
-                NumberBox.Text = "";
                 double result = 0;
 
 
@@ -722,7 +780,8 @@ namespace Calculator
                     int pow = (int)temp[i] - 97;
                     result += Math.Pow(2, pow);
                 }
-                NumberBox.Text = result.ToString(); 
+                NumberBox.Text = result.ToString();
+                OperationBox.Text = "";
             }
             else if (NumberBox.Text.Contains('.') || decimal.Parse(NumberBox.Text) < 0)
             {
@@ -738,13 +797,18 @@ namespace Calculator
                     Dec += double.Parse(NumberBox.Text[NumberBox.Text.Length - 1 - i].ToString())* Math.Pow(2, i);
                 }
                 NumberBox.Text = Dec.ToString();
+                OperationBox.Text = "";
             }
         }
 
         private void Loc_Click(object sender, EventArgs e)
         {
+            if (OperationBox.Text == "LOC")
+            {
+                return;
+            }
 
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || NumberBox.Text=="0")
             {
                 NumberBox.Text = "0";
                 return;
@@ -754,6 +818,22 @@ namespace Calculator
             {
                 NumberBox.Text = "Error";
 
+            }else if(OperationBox.Text == "BIN")
+            {
+                var length = NumberBox.Text.Count();
+                var BinString = NumberBox.Text;
+                NumberBox.Text = "";
+                for (int i = 0; i < length; i++)
+                {
+                    if (BinString[i] == '1')
+                    {
+                        NumberBox.Text += (char)(length - 1 - i + 97);
+                    }
+                }
+                var charArr = NumberBox.Text.ToCharArray();
+                Array.Reverse(charArr);
+                NumberBox.Text = new String(charArr);
+                OperationBox.Text = "LOC";
             }
             else
             {
@@ -779,10 +859,16 @@ namespace Calculator
                 var charArr = NumberBox.Text.ToCharArray();
                 Array.Reverse(charArr);
                 NumberBox.Text =  new String(charArr);
+                OperationBox.Text = "LOC";
             }
         }
 
         
+       
+
+       
+
+
         private double ConvertDecToBin(double num)
         {
             string BinString = "";
@@ -806,41 +892,13 @@ namespace Calculator
                     BinString += "0";
                 }
             }
-            result = double.Parse(BinString); 
+            result = double.Parse(BinString);
             return result;
         }
-
-        private void square_Click(object sender, EventArgs e)
+        private decimal normalize(decimal value)
         {
-            var x = decimal.Parse(NumberBox.Text);
-            OperationBox.Text = $"{x} x {x} =";
-            NumberBox.Text = $"{x * x}";
+            return value / 1.000000000000000000000000000000000m;
         }
-
-        private void reciprocal_Click(object sender, EventArgs e)
-        {
-            if (NumberBox.Text.Any(i => char.IsLetter(i)))
-            {
-                NumberBox.Text = "0";
-                return;
-            }
-            if (NumberBox.Text == "0")
-            {
-                NumberBox.Text = "Can't divide by 0";
-                return;
-            }
-            var x = decimal.Parse(NumberBox.Text);
-            
-            OperationBox.Text = $"1 / {x} =";
-            NumberBox.Text = $"{1 / x}";
-        }
-
-
-
-        //private decimal Normalize(this decimal value)
-        //{
-        //    return value / 1.000000000000000000000000000000000m;
-        //}
 
         //private void Calculator_KeyUp(object sender, KeyEventArgs e)
         //{
