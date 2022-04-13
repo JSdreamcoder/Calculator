@@ -772,9 +772,16 @@ namespace Calculator
                     
                 }
                 var charArr = NumberBox.Text.ToCharArray();
-                Array.Reverse(charArr);
-                NumberBox.Text =  new String(charArr);
-                OperationBox.Text = "LOC";
+                if (charArr.All(a=> char.IsLetter(a)))
+                {
+                    Array.Reverse(charArr);
+                    NumberBox.Text = new String(charArr);
+                    OperationBox.Text = "LOC";
+                }else
+                {
+                    OperationBox.Text = "";
+                    NumberBox.Text = "Error";
+                }
             }
         }
 
