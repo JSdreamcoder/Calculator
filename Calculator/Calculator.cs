@@ -13,12 +13,13 @@ namespace Calculator
         public Calculator()
         {
             InitializeComponent();
-            
             NumberBox.TextAlign = ContentAlignment.MiddleRight;
             OperationBox.TextAlign= ContentAlignment.MiddleRight;
             KeyPreview = true;
-            
+           // CalculatorTab.SelectedIndexChanged += CalculatorTab_SelectedIndexChanged;
         }
+
+    
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -676,8 +677,8 @@ namespace Calculator
                     int pow = (int)temp[i] - 97;
                     result += Math.Pow(2, pow);
                 }
-
                 NumberBox.Text = ConvertDecToBin(result).ToString();
+                
                 OperationBox.Text = "BIN";
             }
             else
@@ -689,6 +690,7 @@ namespace Calculator
                 }
                 double num = double.Parse(NumberBox.Text);
                 NumberBox.Text = ConvertDecToBin(num).ToString();
+                
                 OperationBox.Text = "BIN";
             }
             
@@ -776,6 +778,7 @@ namespace Calculator
                 var charArr = NumberBox.Text.ToCharArray();
                 Array.Reverse(charArr);
                 NumberBox.Text = new String(charArr);
+                
                 OperationBox.Text = "LOC";
             }
             else
@@ -804,6 +807,7 @@ namespace Calculator
                 {
                     Array.Reverse(charArr);
                     NumberBox.Text = new String(charArr);
+                    
                     OperationBox.Text = "LOC";
                 }else
                 {
@@ -812,11 +816,6 @@ namespace Calculator
                 }
             }
         }
-
-        
-       
-
-       
 
 
         private double ConvertDecToBin(double num)
@@ -933,7 +932,6 @@ namespace Calculator
                     Point.PerformClick();
                     break;
                 case Keys.Enter:
-                    NumberBox.Focus();
                     equal.PerformClick();
                     break;
                 default:
@@ -941,15 +939,157 @@ namespace Calculator
 
             }
         }
-        private void Calculator_KeyUp(object sender, KeyEventArgs e)
+
+        private void CalculatorTab_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            switch ((sender as TabControl).SelectedIndex)
+            {
+                case 0:
+                    Decimal.PerformClick();
+                    break;
+                case 1:
+                    Bin_NumberBox.PerformClick();
+                    Bin_NumberBox.Text = NumberBox.Text;
+                    Bin_Operation.Text = OperationBox.Text;
+                    break;
+                case 2:
+                    Loc_NumberBox.PerformClick();
+                    Loc_NumberBox.Text= NumberBox.Text;
+                    Loc_Operation.Text = OperationBox.Text;
+                    break;
+            }
         }
 
-        private void Calculator_KeyPress(object sender, KeyPressEventArgs e)
+        private void Bin_NumberBox_Click(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-                e.Handled = true;
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
+            if (NumberBox.Text == "Error" || NumberBox.Text == "Can't divide by 0" || NumberBox.Text == "0")
+            {
+                Reset.PerformClick();
+                return;
+            }
+
+            if (OperationBox.Text == "BIN")
+            {
+                return;
+            }
+
+
+
+            if (OperationBox.Text == "LOC")
+            {
+                // using ASCII code 
+                int lengh = NumberBox.Text.Length;
+                string temp = NumberBox.Text.ToString();
+                NumberBox.Text = "";
+                double result = 0;
+
+
+                for (int i = lengh - 1; i >= 0; i--)
+                {
+                    int pow = (int)temp[i] - 97;
+                    result += Math.Pow(2, pow);
+                }
+                
+                NumberBox.Text = ConvertDecToBin(result).ToString();
+                OperationBox.Text = "BIN";
+            }
+            else
+            {
+                if (NumberBox.Text.Contains('.') || decimal.Parse(NumberBox.Text) < 0)
+                {
+                    NumberBox.Text = "Error";
+                    return;
+                }
+                double num = double.Parse(NumberBox.Text);
+                
+                NumberBox.Text = ConvertDecToBin(num).ToString();
+                OperationBox.Text = "BIN";
+            }
         }
+
+        private void Loc_NumberBox_Click(object sender, EventArgs e)
+        {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
+            if (OperationBox.Text == "LOC")
+            {
+                return;
+            }
+
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || NumberBox.Text == "0")
+            {
+                NumberBox.Text = "0";
+                return;
+            }
+
+            if (NumberBox.Text.Contains('.') || decimal.Parse(NumberBox.Text) < 0)
+            {
+                NumberBox.Text = "Error";
+
+            }
+            else if (OperationBox.Text == "BIN")
+            {
+                var length = NumberBox.Text.Count();
+                var BinString = NumberBox.Text;
+                NumberBox.Text = "";
+                for (int i = 0; i < length; i++)
+                {
+                    if (BinString[i] == '1')
+                    {
+                        NumberBox.Text += (char)(length - 1 - i + 97);
+                    }
+                }
+                var charArr = NumberBox.Text.ToCharArray();
+                Array.Reverse(charArr);
+                NumberBox.Text = new String(charArr);
+
+                OperationBox.Text = "LOC";
+            }
+            else
+            {
+                double num = double.Parse(NumberBox.Text);
+                NumberBox.Text = "";
+                int maxExponent = 0;
+
+                while (Math.Pow(2, maxExponent) <= num)
+                {
+                    maxExponent++;
+                }
+
+                for (int i = maxExponent - 1; i >= 0; i--)
+                {
+                    if (num >= Math.Pow(2, i))
+                    {
+                        num = num - Math.Pow(2, i);
+                        int ascii = i + 97;
+                        NumberBox.Text += $"{(char)ascii}";
+                    }
+
+                }
+                var charArr = NumberBox.Text.ToCharArray();
+                if (charArr.All(a => char.IsLetter(a)))
+                {
+                    Array.Reverse(charArr);
+                    NumberBox.Text = new String(charArr);
+
+                    OperationBox.Text = "LOC";
+                }
+                else
+                {
+                    OperationBox.Text = "";
+                    NumberBox.Text = "Error";
+                }
+            }
+        }
+
+
+        /////Tab
+
     }
 }
