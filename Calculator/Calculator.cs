@@ -1,21 +1,37 @@
+using System.Diagnostics;
+using System.Windows.Forms;
 namespace Calculator
 {
     public partial class Calculator : Form
     {
-        private string input = "0";
+        
         private decimal Loperand = 0;
         private decimal Roperand = 0;
         private string operation = "=";
         private bool IsNewNum = false;
+        
         public Calculator()
         {
             InitializeComponent();
-            NumberBox.TextAlign = HorizontalAlignment.Right;
-            OperationBox.TextAlign = HorizontalAlignment.Right;
-            NumberBox.Text = "";
+            
+            NumberBox.TextAlign = ContentAlignment.MiddleRight;
+            OperationBox.TextAlign= ContentAlignment.MiddleRight;
+            KeyPreview = true;
+            
         }
 
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                equal.PerformClick();
+                return true;
+            }
+            else
+            {
+                return base.ProcessCmdKey(ref msg, keyData);
+            }
+        }
 
 
 
@@ -23,8 +39,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "0";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -39,14 +55,15 @@ namespace Calculator
             {
                 NumberBox.Text += "0";
             }
+            
         }
 
         private void Num1_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "1";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -63,8 +80,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "2";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -81,8 +98,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "3";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -99,8 +116,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "4";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -117,8 +134,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "5";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -135,8 +152,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "6";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -153,8 +170,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "7";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -171,8 +188,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "8";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -189,8 +206,8 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
+                Reset.PerformClick();
                 NumberBox.Text = "9";
-                OperationBox.Text = "";
                 return;
             }
             if (IsNewNum == true)
@@ -207,9 +224,7 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
-                OperationBox.Text = "";
-                return;
+                Reset.PerformClick();
             }
             if (IsNewNum == true)
             {
@@ -239,8 +254,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
             IsNewNum=true;
@@ -300,8 +314,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
             if (NumberBox.Text == "" && OperationBox.Text == "")
@@ -363,8 +376,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
             if (NumberBox.Text == "" && OperationBox.Text == "")
@@ -426,8 +438,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
             if (NumberBox.Text == "" && OperationBox.Text == "")
@@ -489,8 +500,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
             if (NumberBox.Text == "")
@@ -561,8 +571,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
 
@@ -578,8 +587,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
             var x = decimal.Parse(NumberBox.Text);
@@ -590,10 +598,9 @@ namespace Calculator
         private void reciprocal_Click(object sender, EventArgs e)
         {
             IsNewNum = true;
-            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC" || NumberBox.Text =="")
             {
-                NumberBox.Text = "0";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
 
@@ -613,8 +620,7 @@ namespace Calculator
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
-                OperationBox.Text = "";
+                Reset.PerformClick();
                 return;
             }
             double x = double.Parse(NumberBox.Text);
@@ -625,7 +631,7 @@ namespace Calculator
         {
             if (NumberBox.Text == "Error" || NumberBox.Text== "Can't divide by 0" || NumberBox.Text == "0")
             {
-                NumberBox.Text = "0";
+                Reset.PerformClick();
                 return;
             }
 
@@ -808,9 +814,107 @@ namespace Calculator
         {
             return value / 1.000000000000000000000000000000000m;
         }
+        private void Calculator_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    return;                
+            //}
+            switch (e.KeyCode)
+            {
+                case Keys.D0:
+                    Num0.PerformClick();
+                    break;
+                case Keys.D1:
+                    Num1.PerformClick();
+                    break;
+                case Keys.D2:
+                    Num2.PerformClick();
+                    break;
+                case Keys.D3:
+                    Num3.PerformClick();
+                    break;
+                case Keys.D4:
+                    Num4.PerformClick();
+                    break;
+                case Keys.D5:
+                    Num5.PerformClick();
+                    break;
+                case Keys.D6:
+                    Num6.PerformClick();
+                    break;
+                case Keys.D7:
+                    Num7.PerformClick();
+                    break;
+                case Keys.D8:
+                    Num8.PerformClick();
+                    break;
+                case Keys.D9:
+                    Num9.PerformClick();
+                    break;
+                case Keys.NumPad0:
+                    Num0.PerformClick();
+                    break;
+                case Keys.NumPad1:
+                    Num1.PerformClick();
+                    break;
+                case Keys.NumPad2:
+                    Num2.PerformClick();
+                    break;
+                case Keys.NumPad3:
+                    Num3.PerformClick();
+                    break;
+                case Keys.NumPad4:
+                    Num4.PerformClick();
+                    break;
+                case Keys.NumPad5:
+                    Num5.PerformClick();
+                    break;
+                case Keys.NumPad6:
+                    Num6.PerformClick();
+                    break;
+                case Keys.NumPad7:
+                    Num7.PerformClick();
+                    break;
+                case Keys.NumPad8:
+                    Num8.PerformClick();
+                    break;
+                case Keys.NumPad9:
+                    Num9.PerformClick();
+                    break;
+                case Keys.Add:
+                    Plus.PerformClick();
+                    break;
+                case Keys.Subtract:
+                    Minus.PerformClick();
+                    break;
+                case Keys.Multiply:
+                    Multiply.PerformClick();
+                    break;
+                case Keys.Divide:
+                    Divide.PerformClick();
+                    break;
+                case Keys.Decimal:
+                    Point.PerformClick();
+                    break;
+                case Keys.Enter:
+                    NumberBox.Focus();
+                    equal.PerformClick();
+                    break;
+                default:
+                    break;
 
-       
+            }
+        }
+        private void Calculator_KeyUp(object sender, KeyEventArgs e)
+        {
+           
+        }
 
-        
+        private void Calculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                e.Handled = true;
+        }
     }
 }
