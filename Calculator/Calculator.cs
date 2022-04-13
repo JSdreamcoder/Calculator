@@ -730,6 +730,7 @@ namespace Calculator
             }
             if (NumberBox.Text == "Error" || NumberBox.Text == "Can't divide by 0" || NumberBox.Text == "0")
             {
+                OperationBox.Text = "";
                 NumberBox.Text = "0";
                 return;
             }
@@ -780,6 +781,7 @@ namespace Calculator
 
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || NumberBox.Text=="0")
             {
+                OperationBox.Text = "";
                 NumberBox.Text = "0";
                 return;
             }
@@ -1049,6 +1051,7 @@ namespace Calculator
 
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || NumberBox.Text == "0")
             {
+                OperationBox.Text = "";
                 NumberBox.Text = "0";
                 return;
             }
