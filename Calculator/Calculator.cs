@@ -74,6 +74,7 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
+            if(NumberBox.Text != "0")
             NumberBox.Text += "1";
         }
 
@@ -92,7 +93,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "2";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "2";
         }
 
         private void Num3_Click(object sender, EventArgs e)
@@ -110,7 +112,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "3";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "3";
         }
 
         private void Num4_Click(object sender, EventArgs e)
@@ -128,7 +131,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "4";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "4";
         }
 
         private void Num5_Click(object sender, EventArgs e)
@@ -146,7 +150,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "5";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "5";
         }
 
         private void Num6_Click(object sender, EventArgs e)
@@ -164,7 +169,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "6";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "6";
         }
 
         private void Num7_Click(object sender, EventArgs e)
@@ -182,7 +188,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "7";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "7";
         }
 
         private void Num8_Click(object sender, EventArgs e)
@@ -200,7 +207,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "8";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "8";
         }
 
         private void Num9_Click(object sender, EventArgs e)
@@ -218,7 +226,8 @@ namespace Calculator
                 if (OperationBox.Text.Contains("="))
                     OperationBox.Text = "";
             }
-            NumberBox.Text += "9";
+            if (NumberBox.Text != "0")
+                NumberBox.Text += "9";
         }
 
         private void Point_Click(object sender, EventArgs e)
@@ -252,22 +261,25 @@ namespace Calculator
 
         private void Plus_Click(object sender, EventArgs e)
         {
-            IsNewNum = true;
+            
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 Reset.PerformClick();
+                IsNewNum = true;
                 return;
             }
-            IsNewNum=true;
+            
             if (NumberBox.Text == "" && OperationBox.Text == "")
             {
                 return;
-            }else if (NumberBox.Text == "" && OperationBox.Text !="")
+            }else if (IsNewNum==true && OperationBox.Text !="" )
             {
+                Loperand = decimal.Parse(NumberBox.Text);
                 operation = "+";
                 OperationBox.Text = $"{Normalize(Loperand)} {operation}";
             }else if (NumberBox.Text != "")
             {
+                IsNewNum = true;
                 if (operation == "=")
                 {
                     Loperand = Normalize(decimal.Parse(NumberBox.Text));
@@ -316,19 +328,22 @@ namespace Calculator
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 Reset.PerformClick();
+                IsNewNum = true;
                 return;
             }
             if (NumberBox.Text == "" && OperationBox.Text == "")
             {
                 return;
             }
-            else if (NumberBox.Text == "" && OperationBox.Text != "")
+            else if (IsNewNum == true && OperationBox.Text != "")
             {
+                Loperand = decimal.Parse(NumberBox.Text);
                 operation = "-";
                 OperationBox.Text = $"{Normalize(Loperand)} {operation}";
             }
             else if (NumberBox.Text != "")
             {
+                IsNewNum = true;
                 if (operation == "=")
                 {
                     Loperand = Normalize(decimal.Parse(NumberBox.Text));
@@ -374,23 +389,26 @@ namespace Calculator
 
         private void Multiply_Click(object sender, EventArgs e)
         {
-            IsNewNum = true;
+            
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 Reset.PerformClick();
+                IsNewNum = true;
                 return;
             }
             if (NumberBox.Text == "" && OperationBox.Text == "")
             {
                 return;
             }
-            else if (NumberBox.Text == "" && OperationBox.Text != "")
+            else if (IsNewNum = true && OperationBox.Text != "")
             {
+                Loperand = decimal.Parse(NumberBox.Text);
                 operation = "¡¿";
                 OperationBox.Text = $"{Normalize(Loperand)} {operation}";
             }
             else if (NumberBox.Text != "")
             {
+                IsNewNum = true;
                 if (operation == "=")
                 {
                     Loperand = Normalize(decimal.Parse(NumberBox.Text));
@@ -436,23 +454,26 @@ namespace Calculator
 
         private void Divide_Click(object sender, EventArgs e)
         {
-            IsNewNum = true;
+            
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 Reset.PerformClick();
+                IsNewNum = true;
                 return;
             }
             if (NumberBox.Text == "" && OperationBox.Text == "")
             {
                 return;
             }
-            else if (NumberBox.Text == "" && OperationBox.Text != "")
+            else if (IsNewNum = true&& OperationBox.Text != "")
             {
+                Loperand = decimal.Parse(NumberBox.Text);
                 operation = "¡À";
                 OperationBox.Text = $"{Normalize(Loperand)} {operation}";
             }
             else if (NumberBox.Text != "")
             {
+                IsNewNum = true;
                 if (operation == "=")
                 {
                     Loperand = Normalize(decimal.Parse(NumberBox.Text));
@@ -585,6 +606,7 @@ namespace Calculator
 
             decimal temp = decimal.Parse(NumberBox.Text);
             NumberBox.Text = $"{-temp}";
+            operation = "=";
         }
 
         private void square_Click(object sender, EventArgs e)
@@ -602,6 +624,7 @@ namespace Calculator
             var x = decimal.Parse(NumberBox.Text);
             OperationBox.Text = $"Sqr({x}) =";
             NumberBox.Text = $"{x * x}";
+            operation = "=";
         }
 
         private void reciprocal_Click(object sender, EventArgs e)
@@ -626,6 +649,7 @@ namespace Calculator
 
             OperationBox.Text = $"1 / {x} =";
             NumberBox.Text = $"{1 / x}";
+            operation = "=";
         }
 
         private void Root_Click(object sender, EventArgs e)
@@ -643,6 +667,7 @@ namespace Calculator
             double x = double.Parse(NumberBox.Text);
             OperationBox.Text = $"¡î({x}) =";
             NumberBox.Text = $"{Math.Sqrt(x)}";
+            operation = "=";
         }
         private void Bin_Click(object sender, EventArgs e)
         {
