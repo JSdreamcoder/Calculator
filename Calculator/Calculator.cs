@@ -3,13 +3,16 @@ namespace Calculator
     public partial class Calculator : Form
     {
         private string input = "0";
-        
+        private decimal Loperand = 0;
+        private decimal Roperand = 0;
+        private string operation = "=";
+        private bool IsNewNum = false;
         public Calculator()
         {
             InitializeComponent();
             NumberBox.TextAlign = HorizontalAlignment.Right;
             OperationBox.TextAlign = HorizontalAlignment.Right;
-            NumberBox.Text = "0";
+            NumberBox.Text = "";
         }
 
 
@@ -24,22 +27,17 @@ namespace Calculator
                 OperationBox.Text = "";
                 return;
             }
-                
+            if (IsNewNum == true)
+            {
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if(OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
+            }
 
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (NumberBox.Text != "0")
             {
-                OperationBox.Text = "";
-                input = "0";
-                NumberBox.Text = input;
-            }
-            if (input =="0")
-            {
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "0";
-                NumberBox.Text = input;
+                NumberBox.Text += "0";
             }
         }
 
@@ -47,225 +45,162 @@ namespace Calculator
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "1";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "1";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "1";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "1";
         }
 
         private void Num2_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "2";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "2";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "2";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "2";
         }
 
         private void Num3_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "3";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "3";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "3";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "3";
         }
 
         private void Num4_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "4";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "4";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "4";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "4";
         }
 
         private void Num5_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "5";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "5";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "5";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "5";
         }
 
         private void Num6_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "6";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "6";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "6";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "6";
         }
 
         private void Num7_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "7";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "7";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "7";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "7";
         }
 
         private void Num8_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "8";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "8";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "8";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "8";
         }
 
         private void Num9_Click(object sender, EventArgs e)
         {
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "9";
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
-            {
-                input = "9";
-                NumberBox.Text = input;
-            }
-            else
-            {
-                input += "9";
-                NumberBox.Text = input;
-            }
+            NumberBox.Text += "9";
         }
 
         private void Point_Click(object sender, EventArgs e)
@@ -276,22 +211,24 @@ namespace Calculator
                 OperationBox.Text = "";
                 return;
             }
-
-            if (OperationBox.Text.Split(' ').Count() == 4)
+            if (IsNewNum == true)
             {
-                OperationBox.Text = "";
+                NumberBox.Text = "";
+                IsNewNum = false;
+                if (OperationBox.Text.Contains("="))
+                    OperationBox.Text = "";
             }
-            if (input == "0")
+            
+            if (NumberBox.Text =="")
             {
-                input = "0.";
-                NumberBox.Text = input;
+                NumberBox.Text = "0.";
             }
             else
             {
-                if (!input.Contains('.'))
+                if (!NumberBox.Text.Contains('.'))
                 {
-                  input += ".";
-                  NumberBox.Text = input;
+
+                    NumberBox.Text += ".";
                 }
             }
 
@@ -299,373 +236,329 @@ namespace Calculator
 
         private void Plus_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "";
                 OperationBox.Text = "";
                 return;
             }
-
-            Decimal num = decimal.Parse(NumberBox.Text);
-           
-            if (OperationBox.Text == "")
+            IsNewNum=true;
+            if (NumberBox.Text == "" && OperationBox.Text == "")
             {
-                OperationBox.Text = $"{num} +";
-                NumberBox.Text = $"{num}";
-                
-            }
-            else if(OperationBox.Text.Split(' ').Count() == 2)
+                return;
+            }else if (NumberBox.Text == "" && OperationBox.Text !="")
             {
-                if (input == "0")
-                    return;
-                var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
-                var storedOperation = OperationBox.Text.Split(' ')[1];
-                if (num == 0)
+                operation = "+";
+                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+            }else if (NumberBox.Text != "")
+            {
+                if (operation == "=")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand + num) } +";
-                    return;
+                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    operation = "+";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
+                }else if (operation == "+")
+                {
+                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                    operation = "+";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                if (storedOperation == "+")
+                else if (operation == "-")
                 {
-                   OperationBox.Text = $"{normalize(storedOperand + num) } +";
-                   NumberBox.Text = $"{normalize(storedOperand + num)}";
-                } 
-                else if(storedOperation == "-")
-                {
-                    OperationBox.Text = $"{normalize(storedOperand - num) } +";
-                    NumberBox.Text = $"{normalize(storedOperand - num)}";
+                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                    operation = "+";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "x")
+                else if (operation == "¡¿")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand * num) } +";
-                    NumberBox.Text = $"{normalize(storedOperand * num)}";
+                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                    operation = "+";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "/")
+                else if (operation == "¡À")
                 {
-                    if (num == 0)
+                    if (decimal.Parse(NumberBox.Text) == 0)
                     {
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{normalize(storedOperand / num) } +";
-                    NumberBox.Text = $"{normalize(storedOperand / num)}";
-                }else if (storedOperation == "=")
-                {
-                    OperationBox.Text = $"{normalize(storedOperand)} +";
-                    NumberBox.Text = $"{normalize(storedOperand)}";
+                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                    operation = "+";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                
-            }else if (OperationBox.Text.Split(' ').Count() ==4)
-            {
-                var previousNum = decimal.Parse(NumberBox.Text);
-                OperationBox.Text = $"{normalize(previousNum)} +";
-                NumberBox.Text = $"{normalize(previousNum)}";
             }
-            input = "0";
         }
 
         private void Minus_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "";
                 OperationBox.Text = "";
                 return;
             }
-
-            Decimal num = decimal.Parse(NumberBox.Text);
-            
-            if (OperationBox.Text == "")
+            if (NumberBox.Text == "" && OperationBox.Text == "")
             {
-                OperationBox.Text = $"{num} -";
-                NumberBox.Text = $"{num}";
-                input = "0";
+                return;
             }
-            else if (OperationBox.Text.Split(' ').Count() == 2)
+            else if (NumberBox.Text == "" && OperationBox.Text != "")
             {
-                if (input == "0")
-                    return;
-                var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
-                var storedOperation = OperationBox.Text.Split(' ')[1];
-                if (num == 0)
+                operation = "-";
+                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+            }
+            else if (NumberBox.Text != "")
+            {
+                if (operation == "=")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand + num) } -";
-                    return;
+                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    operation = "-";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                if (storedOperation == "+")
+                else if (operation == "+")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand + num) } -";
-                    NumberBox.Text = $"{normalize(storedOperand + num)}";
+                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                    operation = "-";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "-")
+                else if (operation == "-")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand - num) } -";
-                    NumberBox.Text = $"{normalize(storedOperand - num)}";
+                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                    operation = "-";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "x")
+                else if (operation == "¡¿")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand * num) } -";
-                    NumberBox.Text = $"{normalize(storedOperand * num)}";
+                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                    operation = "-";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "/")
+                else if (operation == "¡À")
                 {
-                    if (num == 0)
+                    if (decimal.Parse(NumberBox.Text) == 0)
                     {
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{normalize(storedOperand / num) } -";
-                    NumberBox.Text = $"{normalize(storedOperand / num)}";
+                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                    operation = "-";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "=")
-                {
-                    OperationBox.Text = $"{normalize(storedOperand)} -";
-                    NumberBox.Text = $"{normalize(storedOperand)}";
-                }
-
             }
-            else if (OperationBox.Text.Split(' ').Count() == 4)
-            {
-                var previousNum = decimal.Parse(NumberBox.Text);
-                OperationBox.Text = $"{previousNum} -";
-                NumberBox.Text = $"{previousNum}";
-            }
-            input = "0";
         }
 
         private void Multiply_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "";
                 OperationBox.Text = "";
                 return;
             }
-
-            Decimal num = decimal.Parse(NumberBox.Text);
-           
-            if (OperationBox.Text == "")
+            if (NumberBox.Text == "" && OperationBox.Text == "")
             {
-                OperationBox.Text = $"{num} x";
-                NumberBox.Text = $"{num}";
+                return;
             }
-            else if (OperationBox.Text.Split(' ').Count() == 2)
+            else if (NumberBox.Text == "" && OperationBox.Text != "")
             {
-                if (input == "0")
-                    return;
-                var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
-                var storedOperation = OperationBox.Text.Split(' ')[1];
-                if (num == 0)
+                operation = "¡¿";
+                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+            }
+            else if (NumberBox.Text != "")
+            {
+                if (operation == "=")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand + num) } x";
-                    return;
+                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    operation = "¡¿";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                if (storedOperation == "+")
+                else if (operation == "+")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand + num) } x";
-                    NumberBox.Text = $"{normalize(storedOperand + num)}";
+                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                    operation = "¡¿";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "-")
+                else if (operation == "-")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand - num) } x";
-                    NumberBox.Text = $"{normalize(storedOperand - num)}";
+                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                    operation = "¡¿";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "x")
+                else if (operation == "¡¿")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand * num) } x";
-                    NumberBox.Text = $"{normalize(storedOperand * num)}";
+                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                    operation = "¡¿";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "/")
+                else if (operation == "¡À")
                 {
-                    if (num == 0)
+                    if (decimal.Parse(NumberBox.Text) == 0)
                     {
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{normalize(storedOperand / num) } x";
-                    NumberBox.Text = $"{normalize(storedOperand / num)}";
+                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                    operation = "¡¿";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "=")
-                {
-                    OperationBox.Text = $"{normalize(storedOperand)} x";
-                    NumberBox.Text = $"{normalize(storedOperand)}";
-                }
-
             }
-            else if (OperationBox.Text.Split(' ').Count() == 4)
-            {
-                var previousNum = decimal.Parse(NumberBox.Text);
-                OperationBox.Text = $"{normalize(previousNum)} x";
-                NumberBox.Text = $"{normalize(previousNum)}";
-            }
-            input = "0";
         }
 
         private void Divide_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "";
                 OperationBox.Text = "";
                 return;
             }
-
-            Decimal num = decimal.Parse(NumberBox.Text);
-           
-            if (OperationBox.Text == "")
+            if (NumberBox.Text == "" && OperationBox.Text == "")
             {
-                OperationBox.Text = $"{num} /";
-                NumberBox.Text = $"{num}";
-                input = "0";
+                return;
             }
-            else if (OperationBox.Text.Split(' ').Count() == 2)
+            else if (NumberBox.Text == "" && OperationBox.Text != "")
             {
-                if (input == "0")
-                    return;
-                var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
-                var storedOperation = OperationBox.Text.Split(' ')[1];
-                if (num == 0)
+                operation = "¡À";
+                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+            }
+            else if (NumberBox.Text != "")
+            {
+                if (operation == "=")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand) } /";
-                    return;
+                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    operation = "¡À";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                if (storedOperation == "+")
+                else if (operation == "+")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand + num )} /";
-                    NumberBox.Text = $"{normalize(storedOperand + num)}";
+                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                    operation = "¡À";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "-")
+                else if (operation == "-")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand - num) } /";
-                    NumberBox.Text = $"{normalize(storedOperand - num)}";
+                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                    operation = "¡À";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "x")
+                else if (operation == "¡¿")
                 {
-                    OperationBox.Text = $"{normalize(storedOperand * num) } /";
-                    NumberBox.Text = $"{normalize(storedOperand * num)}";
+                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                    operation = "¡À";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "/")
+                else if (operation == "¡À")
                 {
-                    if (num == 0)
+                    if (decimal.Parse(NumberBox.Text) == 0)
                     {
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{normalize(storedOperand / num) } /";
-                    NumberBox.Text = $"{normalize(storedOperand / num)}";
+                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                    operation = "¡À";
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "=")
-                {
-                    OperationBox.Text = $"{normalize(storedOperand)} /";
-                    NumberBox.Text = $"{normalize(storedOperand)}";
-                }
-
             }
-            else if (OperationBox.Text.Split(' ').Count() == 4)
-            {
-                var previousNum = decimal.Parse(NumberBox.Text);
-                OperationBox.Text = $"{previousNum} /";
-                NumberBox.Text = $"{previousNum}";
-              
-            }
-            input = "0";
         }
 
         private void Equal_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
-                NumberBox.Text = "0";
+                NumberBox.Text = "";
                 OperationBox.Text = "";
                 return;
             }
-
-            Decimal num = decimal.Parse(NumberBox.Text);
-           
-            if (OperationBox.Text == "")
+            if (NumberBox.Text == "")
             {
-                OperationBox.Text = $"{num} =";
-                NumberBox.Text = $"{num}";
-                
-            }
-            else if(OperationBox.Text.Split(' ').Count() ==2)
+                return;
+            }else if (NumberBox.Text != "")
             {
-                var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
-                var storedOperation = OperationBox.Text.Split(' ')[1];
-                
-                if (storedOperation == "+")
+                if (operation == "=")
                 {
-                    OperationBox.Text = $"{storedOperand} + {num} =";
-                    NumberBox.Text = $"{normalize(storedOperand + num)}";
+                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "-")
+                else if (operation == "+")
                 {
-                    OperationBox.Text = $"{storedOperand} - {num} =";
-                    NumberBox.Text = $"{normalize(storedOperand - num)}";
+                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                    Loperand = Normalize(Loperand + Roperand);
+                    operation = "=";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "x")
+                else if (operation == "-")
                 {
-                    OperationBox.Text = $"{storedOperand} x {num} =";
-                    NumberBox.Text = $"{normalize(storedOperand * num)}";
+                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                    Loperand = Normalize(Loperand - Roperand);
+                    operation = "=";
+                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (storedOperation == "/")
+                else if (operation == "¡¿")
                 {
-                    if (num == 0)
+                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                    Loperand = Normalize(Loperand * Roperand);
+                    operation = "=";
+                    NumberBox.Text = $"{Loperand}";
+                }
+                else if (operation == "¡À")
+                {
+                    if (decimal.Parse(NumberBox.Text) == 0)
                     {
                         NumberBox.Text = "Can't divide by 0";
                         return;
                     }
-                    OperationBox.Text = $"{storedOperand} / {num} =";
-                    NumberBox.Text = $"{normalize(storedOperand / num)}";
-                }
-                
-            }
-            else if (OperationBox.Text.Split(' ').Count() == 4)
-            {
-                var storedOperand = decimal.Parse(OperationBox.Text.Split(' ')[0]);
-                var storedOperation = OperationBox.Text.Split(' ')[1];
-                var storedOperand2 = decimal.Parse(OperationBox.Text.Split(' ')[2]);
-
-                if (storedOperation == "+")
-                {
-                    OperationBox.Text = $"{num} + {storedOperand2} =";
-                    NumberBox.Text = $"{normalize(num + storedOperand2)}";
-                }
-                else if (storedOperation == "-")
-                {
-                    OperationBox.Text = $"{num} - {storedOperand2} =";
-                    NumberBox.Text = $"{normalize(num - storedOperand2)}";
-                }
-                else if (storedOperation == "x")
-                {
-                    OperationBox.Text = $"{num} x {storedOperand2} =";
-                    NumberBox.Text = $"{normalize(num *storedOperand)}";
-                }
-                else if (storedOperation == "/")
-                {
-                    if (num == 0)
-                    {
-                        NumberBox.Text = "Can't divide by 0";
-                        return;
-                    }
-                    OperationBox.Text = $"{num} / {storedOperand2} =";
-                    NumberBox.Text = $"{normalize(num / storedOperand2) }";
+                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                    Loperand = Normalize(Loperand / Roperand);
+                    operation = "=";
+                    NumberBox.Text = $"{Loperand}";
                 }
             }
-            input = "0";
         }
 
         private void Reset_Click(object sender, EventArgs e)
         {
-          
-            input = "0";
+            IsNewNum = true;
+
             OperationBox.Text = "";
-            NumberBox.Text = "0";
+            NumberBox.Text = "";
+            Loperand = 0;
+            Roperand = 0;
+            operation = "=";
            
         }
 
         private void Opposite_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
@@ -682,6 +575,7 @@ namespace Calculator
 
         private void square_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
@@ -689,12 +583,13 @@ namespace Calculator
                 return;
             }
             var x = decimal.Parse(NumberBox.Text);
-            OperationBox.Text = $"{x} x {x} =";
+            OperationBox.Text = $"Sqr({x}) =";
             NumberBox.Text = $"{x * x}";
         }
 
         private void reciprocal_Click(object sender, EventArgs e)
         {
+            IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
                 NumberBox.Text = "0";
@@ -711,6 +606,20 @@ namespace Calculator
 
             OperationBox.Text = $"1 / {x} =";
             NumberBox.Text = $"{1 / x}";
+        }
+
+        private void Root_Click(object sender, EventArgs e)
+        {
+            IsNewNum = true;
+            if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
+            {
+                NumberBox.Text = "0";
+                OperationBox.Text = "";
+                return;
+            }
+            double x = double.Parse(NumberBox.Text);
+            OperationBox.Text = $"¡î({x}) =";
+            NumberBox.Text = $"{Math.Sqrt(x)}";
         }
         private void Bin_Click(object sender, EventArgs e)
         {
@@ -895,19 +804,13 @@ namespace Calculator
             result = double.Parse(BinString);
             return result;
         }
-        private decimal normalize(decimal value)
+        private decimal Normalize(decimal value)
         {
             return value / 1.000000000000000000000000000000000m;
         }
 
-        //private void Calculator_KeyUp(object sender, KeyEventArgs e)
-        //{
-        //    if (e.KeyCode == Keys.NumPad0 || e.KeyCode == Keys.D0)
-        //    {
-        //        NumberBox.Text = "success";
-        //    }
-        //}
+       
 
-
+        
     }
 }

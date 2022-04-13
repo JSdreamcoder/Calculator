@@ -53,7 +53,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
+            this.Root = new System.Windows.Forms.Button();
             Opposite = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -80,7 +80,7 @@
             this.NumberBox.Location = new System.Drawing.Point(223, 181);
             this.NumberBox.Name = "NumberBox";
             this.NumberBox.Size = new System.Drawing.Size(354, 43);
-            this.NumberBox.TabIndex = 1;
+            this.NumberBox.TabIndex = 0;
             // 
             // button2
             // 
@@ -94,12 +94,13 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button4.Location = new System.Drawing.Point(223, 279);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(84, 45);
             this.button4.TabIndex = 3;
             this.button4.Text = "C";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.Reset_Click);
             // 
             // reciprocal
@@ -254,12 +255,13 @@
             // 
             // button21
             // 
+            this.button21.BackColor = System.Drawing.Color.NavajoWhite;
             this.button21.Location = new System.Drawing.Point(493, 483);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(84, 45);
             this.button21.TabIndex = 20;
             this.button21.Text = "=";
-            this.button21.UseVisualStyleBackColor = true;
+            this.button21.UseVisualStyleBackColor = false;
             this.button21.Click += new System.EventHandler(this.Equal_Click);
             // 
             // Num0
@@ -302,21 +304,25 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.Loc_Click);
             // 
-            // button22
+            // Root
             // 
-            this.button22.Location = new System.Drawing.Point(493, 228);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(84, 45);
-            this.button22.TabIndex = 22;
-            this.button22.UseVisualStyleBackColor = true;
+            this.Root.Location = new System.Drawing.Point(493, 228);
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(84, 45);
+            this.Root.TabIndex = 22;
+            this.Root.Text = "√x";
+            this.Root.UseVisualStyleBackColor = true;
+            this.Root.Click += new System.EventHandler(this.Root_Click);
             // 
             // Calculator
             // 
+            this.AccessibleDescription = "Demo Calculator";
+            this.AccessibleName = "Demo Calculator";
             this.ClientSize = new System.Drawing.Size(762, 629);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button22);
+            this.Controls.Add(this.Root);
             this.Controls.Add(this.button20);
             this.Controls.Add(this.button21);
             this.Controls.Add(Opposite);
@@ -398,6 +404,6 @@
         private Button button1;
         private Button button3;
         private Button button5;
-        private Button button22;
+        private Button Root;
     }
 }
