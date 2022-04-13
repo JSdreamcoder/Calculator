@@ -568,6 +568,10 @@ namespace Calculator
 
         private void Opposite_Click(object sender, EventArgs e)
         {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
@@ -584,6 +588,10 @@ namespace Calculator
 
         private void square_Click(object sender, EventArgs e)
         {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
@@ -597,6 +605,10 @@ namespace Calculator
 
         private void reciprocal_Click(object sender, EventArgs e)
         {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC" || NumberBox.Text =="")
             {
@@ -617,6 +629,10 @@ namespace Calculator
 
         private void Root_Click(object sender, EventArgs e)
         {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
             IsNewNum = true;
             if (NumberBox.Text.Any(i => char.IsLetter(i)) || OperationBox.Text == "BIN" || OperationBox.Text == "LOC")
             {
@@ -629,6 +645,10 @@ namespace Calculator
         }
         private void Bin_Click(object sender, EventArgs e)
         {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
             if (NumberBox.Text == "Error" || NumberBox.Text== "Can't divide by 0" || NumberBox.Text == "0")
             {
                 Reset.PerformClick();
@@ -677,6 +697,10 @@ namespace Calculator
 
         private void Dec_Click(object sender, EventArgs e)
         {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
             if (NumberBox.Text == "Error" || NumberBox.Text == "Can't divide by 0" || NumberBox.Text == "0")
             {
                 NumberBox.Text = "0";
@@ -718,6 +742,10 @@ namespace Calculator
 
         private void Loc_Click(object sender, EventArgs e)
         {
+            if (NumberBox.Text == "")
+            {
+                return;
+            }
             if (OperationBox.Text == "LOC")
             {
                 return;
