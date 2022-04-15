@@ -268,57 +268,67 @@ namespace Calculator
                 IsNewNum = true;
                 return;
             }
-            
-            if (NumberBox.Text == "" && OperationBox.Text == "")
+            try
             {
-                return;
-            }else if (IsNewNum==true && OperationBox.Text !="" )
-            {
-                Loperand = decimal.Parse(NumberBox.Text);
-                operation = "+";
-                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-            }else if (NumberBox.Text != "")
-            {
-                IsNewNum = true;
-                if (operation == "=")
+
+                if (NumberBox.Text == "" && OperationBox.Text == "")
                 {
-                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
-                    operation = "+";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }else if (operation == "+")
-                {
-                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
-                    operation = "+";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
+                    return;
                 }
-                else if (operation == "-")
+                else if (IsNewNum == true && OperationBox.Text != "")
                 {
-                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                    Loperand = decimal.Parse(NumberBox.Text);
                     operation = "+";
                     OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (operation == "¡¿")
+                else if (NumberBox.Text != "")
                 {
-                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
-                    operation = "+";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡À")
-                {
-                    if (decimal.Parse(NumberBox.Text) == 0)
+                    IsNewNum = true;
+                    if (operation == "=")
                     {
-                        NumberBox.Text = "Can't divide by 0";
-                        return;
+                        Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                        operation = "+";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
                     }
-                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
-                    operation = "+";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
+                    else if (operation == "+")
+                    {
+                        Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                        operation = "+";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "-")
+                    {
+                        Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                        operation = "+";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡¿")
+                    {
+                        Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                        operation = "+";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡À")
+                    {
+                        if (decimal.Parse(NumberBox.Text) == 0)
+                        {
+                            NumberBox.Text = "Can't divide by 0";
+                            return;
+                        }
+                        Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                        operation = "+";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                NumberBox.Text = ex.Message; 
             }
         }
 
@@ -331,59 +341,67 @@ namespace Calculator
                 IsNewNum = true;
                 return;
             }
-            if (NumberBox.Text == "" && OperationBox.Text == "")
+            try
             {
-                return;
-            }
-            else if (IsNewNum == true && OperationBox.Text != "")
-            {
-                Loperand = decimal.Parse(NumberBox.Text);
-                operation = "-";
-                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-            }
-            else if (NumberBox.Text != "")
-            {
-                IsNewNum = true;
-                if (operation == "=")
+
+                if (NumberBox.Text == "" && OperationBox.Text == "")
                 {
-                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    return;
+                }
+                else if (IsNewNum == true && OperationBox.Text != "")
+                {
+                    Loperand = decimal.Parse(NumberBox.Text);
                     operation = "-";
                     OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (operation == "+")
+                else if (NumberBox.Text != "")
                 {
-                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
-                    operation = "-";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "-")
-                {
-                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
-                    operation = "-";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡¿")
-                {
-                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
-                    operation = "-";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡À")
-                {
-                    if (decimal.Parse(NumberBox.Text) == 0)
+                    IsNewNum = true;
+                    if (operation == "=")
                     {
-                        NumberBox.Text = "Can't divide by 0";
-                        return;
+                        Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                        operation = "-";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
                     }
-                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
-                    operation = "-";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
+                    else if (operation == "+")
+                    {
+                        Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                        operation = "-";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "-")
+                    {
+                        Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                        operation = "-";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡¿")
+                    {
+                        Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                        operation = "-";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡À")
+                    {
+                        if (decimal.Parse(NumberBox.Text) == 0)
+                        {
+                            NumberBox.Text = "Can't divide by 0";
+                            return;
+                        }
+                        Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                        operation = "-";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                NumberBox.Text = ex.Message;
             }
         }
 
@@ -396,59 +414,67 @@ namespace Calculator
                 IsNewNum = true;
                 return;
             }
-            if (NumberBox.Text == "" && OperationBox.Text == "")
+            try
             {
-                return;
-            }
-            else if (IsNewNum = true && OperationBox.Text != "")
-            {
-                Loperand = decimal.Parse(NumberBox.Text);
-                operation = "¡¿";
-                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-            }
-            else if (NumberBox.Text != "")
-            {
-                IsNewNum = true;
-                if (operation == "=")
+
+                if (NumberBox.Text == "" && OperationBox.Text == "")
                 {
-                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    return;
+                }
+                else if (IsNewNum = true && OperationBox.Text != "")
+                {
+                    Loperand = decimal.Parse(NumberBox.Text);
                     operation = "¡¿";
                     OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (operation == "+")
+                else if (NumberBox.Text != "")
                 {
-                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
-                    operation = "¡¿";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "-")
-                {
-                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
-                    operation = "¡¿";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡¿")
-                {
-                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
-                    operation = "¡¿";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡À")
-                {
-                    if (decimal.Parse(NumberBox.Text) == 0)
+                    IsNewNum = true;
+                    if (operation == "=")
                     {
-                        NumberBox.Text = "Can't divide by 0";
-                        return;
+                        Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                        operation = "¡¿";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
                     }
-                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
-                    operation = "¡¿";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
+                    else if (operation == "+")
+                    {
+                        Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                        operation = "¡¿";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "-")
+                    {
+                        Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                        operation = "¡¿";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡¿")
+                    {
+                        Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                        operation = "¡¿";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡À")
+                    {
+                        if (decimal.Parse(NumberBox.Text) == 0)
+                        {
+                            NumberBox.Text = "Can't divide by 0";
+                            return;
+                        }
+                        Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                        operation = "¡¿";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                NumberBox.Text = ex.Message;
             }
         }
 
@@ -461,59 +487,68 @@ namespace Calculator
                 IsNewNum = true;
                 return;
             }
-            if (NumberBox.Text == "" && OperationBox.Text == "")
+
+            try
             {
-                return;
-            }
-            else if (IsNewNum = true&& OperationBox.Text != "")
-            {
-                Loperand = decimal.Parse(NumberBox.Text);
-                operation = "¡À";
-                OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-            }
-            else if (NumberBox.Text != "")
-            {
-                IsNewNum = true;
-                if (operation == "=")
+
+                if (NumberBox.Text == "" && OperationBox.Text == "")
                 {
-                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                    return;
+                }
+                else if (IsNewNum = true && OperationBox.Text != "")
+                {
+                    Loperand = decimal.Parse(NumberBox.Text);
                     operation = "¡À";
                     OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
                 }
-                else if (operation == "+")
+                else if (NumberBox.Text != "")
                 {
-                    Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
-                    operation = "¡À";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "-")
-                {
-                    Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
-                    operation = "¡À";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡¿")
-                {
-                    Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
-                    operation = "¡À";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡À")
-                {
-                    if (decimal.Parse(NumberBox.Text) == 0)
+                    IsNewNum = true;
+                    if (operation == "=")
                     {
-                        NumberBox.Text = "Can't divide by 0";
-                        return;
+                        Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                        operation = "¡À";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
                     }
-                    Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
-                    operation = "¡À";
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
+                    else if (operation == "+")
+                    {
+                        Loperand = Normalize(Loperand + decimal.Parse(NumberBox.Text));
+                        operation = "¡À";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "-")
+                    {
+                        Loperand = Normalize(Loperand - decimal.Parse(NumberBox.Text));
+                        operation = "¡À";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡¿")
+                    {
+                        Loperand = Normalize(Loperand * decimal.Parse(NumberBox.Text));
+                        operation = "¡À";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡À")
+                    {
+                        if (decimal.Parse(NumberBox.Text) == 0)
+                        {
+                            NumberBox.Text = "Can't divide by 0";
+                            return;
+                        }
+                        Loperand = Normalize(Loperand / decimal.Parse(NumberBox.Text));
+                        operation = "¡À";
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                NumberBox.Text = ex.Message;
             }
         }
 
@@ -525,54 +560,63 @@ namespace Calculator
                 Reset.PerformClick();
                 return;
             }
-            if (NumberBox.Text == "")
+            try
             {
-                return;
-            }else if (NumberBox.Text != "")
-            {
-                if (operation == "=")
+
+                if (NumberBox.Text == "")
                 {
-                    Loperand = Normalize(decimal.Parse(NumberBox.Text));
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation}";
-                    NumberBox.Text = $"{Loperand}";
+                    return;
                 }
-                else if (operation == "+")
+                else if (NumberBox.Text != "")
                 {
-                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
-                    Loperand = Normalize(Loperand + Roperand);
-                    operation = "=";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "-")
-                {
-                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
-                    Loperand = Normalize(Loperand - Roperand);
-                    operation = "=";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡¿")
-                {
-                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
-                    Loperand = Normalize(Loperand * Roperand);
-                    operation = "=";
-                    NumberBox.Text = $"{Loperand}";
-                }
-                else if (operation == "¡À")
-                {
-                    if (decimal.Parse(NumberBox.Text) == 0)
+                    if (operation == "=")
                     {
-                        NumberBox.Text = "Can't divide by 0";
-                        return;
+                        Loperand = Normalize(decimal.Parse(NumberBox.Text));
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation}";
+                        NumberBox.Text = $"{Loperand}";
                     }
-                    Roperand = Normalize(decimal.Parse(NumberBox.Text));
-                    OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
-                    Loperand = Normalize(Loperand / Roperand);
-                    operation = "=";
-                    NumberBox.Text = $"{Loperand}";
+                    else if (operation == "+")
+                    {
+                        Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                        Loperand = Normalize(Loperand + Roperand);
+                        operation = "=";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "-")
+                    {
+                        Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                        Loperand = Normalize(Loperand - Roperand);
+                        operation = "=";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡¿")
+                    {
+                        Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                        Loperand = Normalize(Loperand * Roperand);
+                        operation = "=";
+                        NumberBox.Text = $"{Loperand}";
+                    }
+                    else if (operation == "¡À")
+                    {
+                        if (decimal.Parse(NumberBox.Text) == 0)
+                        {
+                            NumberBox.Text = "Can't divide by 0";
+                            return;
+                        }
+                        Roperand = Normalize(decimal.Parse(NumberBox.Text));
+                        OperationBox.Text = $"{Normalize(Loperand)} {operation} {Roperand} =";
+                        Loperand = Normalize(Loperand / Roperand);
+                        operation = "=";
+                        NumberBox.Text = $"{Loperand}";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                NumberBox.Text = ex.Message;
             }
         }
 
@@ -603,10 +647,17 @@ namespace Calculator
 
             if (NumberBox.Text == "0")
                 return;
+            try
+            {
 
-            decimal temp = decimal.Parse(NumberBox.Text);
-            NumberBox.Text = $"{-temp}";
-            operation = "=";
+                decimal temp = decimal.Parse(NumberBox.Text);
+                NumberBox.Text = $"{-temp}";
+                operation = "=";
+            }
+            catch (Exception ex)
+            {
+                NumberBox.Text = ex.Message;
+            }
         }
 
         private void square_Click(object sender, EventArgs e)
@@ -621,10 +672,18 @@ namespace Calculator
                 Reset.PerformClick();
                 return;
             }
-            var x = decimal.Parse(NumberBox.Text);
-            OperationBox.Text = $"Sqr({x}) =";
-            NumberBox.Text = $"{x * x}";
-            operation = "=";
+
+            try
+            {
+                var x = decimal.Parse(NumberBox.Text);
+                OperationBox.Text = $"Sqr({x}) =";
+                NumberBox.Text = $"{x * x}";
+                operation = "=";
+            }
+            catch (Exception ex)
+            {
+                NumberBox.Text = ex.Message;
+            }
         }
 
         private void reciprocal_Click(object sender, EventArgs e)
